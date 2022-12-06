@@ -1,48 +1,19 @@
-import React, { useEffect, useState } from "react";
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
+import Movies from './pages/Movies';
+import Form from './pages/Form'
 
 function App() {
-  const [movies, setMovies] = useState(null);
-  const [loading, setLoading] = useState(null);
-  const [error, setError] = useState(null);
-
-  const API_BASE = process.env.NODE_ENV === 'development' ? 'http://localhost:8000/api/v1' : process.env.REACT_APP_BASE_URL;
-
-  let ignore = false;
-  useEffect(() => {
-    if(!ignore){
-      getMovies();
-    }
-
-    return () => {
-      ignore = true;
-    }
-  }, [])
-
-  const getMovies = async () => {
-    setLoading(true);
-    try {
-      await fetch(`${API_BASE}/list`)
-        .then(res => res.json())
-        .then(data => {
-          console.log(data)
-          setMovies(data)
-        })
-    } catch (error) {
-      setError(error.message || "Error")
-    } finally {
-      setLoading(false)
-    }
-  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Movies List:</h1>
-        <ul>
-          <li>Movies</li>
-        </ul>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/dashboard' exact element={<Dashboard />} />
+        <Route path='/home' exact element={<Home />} />
+        <Route path='/movies/:id' exact element={<Movies />} />
+        <Route path='form' exact element={<Form />} />
+      </Routes>
+    </Router>
   );
 }
 
