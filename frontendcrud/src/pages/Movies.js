@@ -121,7 +121,7 @@ function Movies() {
             </label>
             <input type="submit" value="submit" />
         </form>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/dashboard">Dashboard</Link>
         <Link to="/form">Add a Movie!</Link>
       </header>

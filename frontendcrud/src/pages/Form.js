@@ -76,7 +76,7 @@ function Form() {
     <div className="App">
       <header className="App-header">
         <h1>Add a Movie!</h1>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/dashboard">Dashboard</Link>
         <form onSubmit={(e) => handleSubmit(e)}>
             <label>

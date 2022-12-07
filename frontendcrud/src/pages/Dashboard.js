@@ -40,7 +40,7 @@ function Dashboard() {
     <div className="App">
       <header className="App-header">
         <h1>Movies List:</h1>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <ul>
           {
             movies && movies.map(movie =>(

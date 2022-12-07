@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/dashboard' exact element={<Dashboard />} />
-        <Route path='/home' exact element={<Home />} />
+        <Route path='/' exact element={<Home />} />
         <Route path='/movies/:id' exact element={<Movies />} />
         <Route path='form' exact element={<Form />} />
       </Routes>
