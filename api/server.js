@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8000;
 
 const listRouter = require("./routes/list");
 
-const DATABASE_URL = process.env.DATABASE_URL || `mongodb+srv://Branden:password12345@movieapi.r3tkhgh.mongodb.net/?retryWrites=true&w=majority`;
+const DATABASE_URL = process.env.DATABASE_URL;
 
 mongoose.connect(DATABASE_URL, {useNewUrlParser: true});
 const db = mongoose.connection;
