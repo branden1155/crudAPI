@@ -57,7 +57,7 @@ function Movies() {
         .then(res => res.json())
         .then(data => {
             setMovies(data);
-          navigate("/dashboard", {replace: true});
+            navigate("/dashboard", {replace: true});
         })
     } catch (error) {
       setError(error.message || "Error")
@@ -87,9 +87,7 @@ function Movies() {
         e.persist();
         setValues((values) => ({
             ...values,
-            [e.target.movieName]: e.target.value,
-            [e.target.movieGenre]: e.target.value,
-            [e.target.movieRating]: e.target.value
+            [e.target.name]: e.target.value,
         }))
     }
 
@@ -107,7 +105,7 @@ function Movies() {
             <h5>{values && values.movieGenre}</h5>
             <h5>{values && values.movieRating}</h5>
         </li>
-        <button onClick={() => removeMovie}>Delete Movie</button>
+        <button onClick={() => removeMovie()}>Delete Movie</button>
         <form onSubmit={(e) => handleSubmit(e)}>
             <label>
                 Movie Name

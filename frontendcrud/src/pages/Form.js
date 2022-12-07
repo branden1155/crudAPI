@@ -33,11 +33,7 @@ function Form() {
       await fetch(`${API_BASE}/list`)
         .then(res => res.json())
         .then(data => {
-          setValues({
-            movieName: data.movieName,
-            movieGenre: data.movieGenre,
-            movieRating: data.movieRating
-          })
+          setMovies(data)
           
         })
     } catch (error) {
@@ -55,8 +51,7 @@ function Form() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(values)
-      })
-        .then(res => res.json())
+      }).then(() => getMovies())
     } catch (error) {
       setError(error.message || "Error")
     } finally {
@@ -68,7 +63,7 @@ function Form() {
         e.persist();
         setValues((values) => ({
             ...values,
-            [e.target.movieName]: e.target.value
+            [e.target.name]: e.target.value
         }))
     }
 
