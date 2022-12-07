@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import '../App.css';
+import './formStyle.css'
 
 function Form() {
   const [movies, setMovies] = useState(null);
@@ -73,27 +73,29 @@ function Form() {
     }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Add a Movie!</h1>
-        <Link to="/">Home</Link>
-        <Link to="/dashboard">Dashboard</Link>
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <label>
-                Movie Name
-                <input type="text" name="movieName" value={values.movieName} onChange={handleInputChanges} ></input>
-            </label>
-            <label>
-                Movie Genre
-                <input type="text" name="movieGenre" value={values.movieGenre} onChange={handleInputChanges} ></input>
-            </label>
-            <label>
-                Movie Rating
-                <input type="text" name="movieRating" value={values.movieRating} onChange={handleInputChanges} ></input>
-            </label>
-            <input type="submit" value="submit" />
-        </form>
-      </header>
+    <div className="formPage">
+        <span className="formTitle">Add a Movie!</span>
+        <div className="formHero">
+          <form className="formField" onSubmit={(e) => handleSubmit(e)}>
+              <label className="formLabel">
+                   Movie Name
+                  <input className="inputField" type="text" name="movieName" placeholder="Movie Name..." value={values.movieName} onChange={handleInputChanges} ></input>
+              </label>
+              <label className="formLabel">
+                  Movie Genre
+                  <input className="inputField" type="text" name="movieGenre" placeholder="Movie Genre..." value={values.movieGenre} onChange={handleInputChanges} ></input>
+              </label>
+              <label className="formLabel">
+                  Movie Rating
+                  <input className="inputField" type="text" name="movieRating" placeholder="Movie Rating..." value={values.movieRating} onChange={handleInputChanges} ></input>
+              </label>
+              <input className="formButton" type="submit" value="submit" />
+          </form>
+          <div className="navButtons">
+            <Link className="formLinks" to="/">Home</Link>
+            <Link className="formLinks" to="/movies">Movies List</Link>
+          </div>
+        </div>
     </div>
   );
 }

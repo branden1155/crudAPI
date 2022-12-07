@@ -1,6 +1,6 @@
 import React, { useEffect,  useState } from "react";
-import { Link, useParams, useNavigate, json } from 'react-router-dom';
-import '../App.css';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import './moviesStyle.css'
 
 function Movies() {
   const [movies, setMovies] = useState(null);
@@ -97,34 +97,45 @@ function Movies() {
     }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Movies</h1>
-        <li>
-            <h5>{values && values.movieName}</h5>
-            <h5>{values && values.movieGenre}</h5>
-            <h5>{values && values.movieRating}</h5>
-        </li>
-        <button onClick={() => removeMovie()}>Delete Movie</button>
-        <form onSubmit={(e) => handleSubmit(e)}>
+    <div className="movie">
+      <span className="movieSpecificTitle">{values && values.movieName}</span>
+      <div className="movieSpecificHero">
+        <div className="movieSpecificInfo">
+          <li className="movieLi">
+            <div className="movieLiInfo">
+              <h1 className="movieInfoTitle">Movie Name:</h1>
+              <span className="movieValues">{values && values.movieName}</span>
+              <h1 className="movieInfoTitle">Movie Genre:</h1>
+              <span className="movieValues">{values && values.movieGenre}</span>
+              <h1 className="movieInfoTitle">Movie Rating:</h1>
+              <span className="movieValues">{values && values.movieRating}</span>
+            </div>
+          </li>
+          <button className="removeButton" onClick={() => removeMovie()}>Delete Movie</button>
+          <div className="movieSpecificLinks">
+            <Link className="movieSpecificNavLinks" to="/">Home</Link>
+            <Link className="movieSpecificNavLinks" to="/form">Add new Movie</Link>
+          </div>
+        </div>
+        <div>
+          <span className="editMovieTitle">Edit Movie</span>
+          <form className="formSpecificForm" onSubmit={(e) => handleSubmit(e)}>
             <label>
                 Movie Name
-                <input type="text" name="movieName" value={values.movieName} onChange={handleInputChanges} ></input>
+                <input className="inputSpecific" type="text" name="movieName" value={values.movieName} onChange={handleInputChanges} ></input>
             </label>
             <label>
                 Movie Genre
-                <input type="text" name="movieGenre" value={values.movieGenre} onChange={handleInputChanges} ></input>
+                <input className="inputSpecific" type="text" name="movieGenre" value={values.movieGenre} onChange={handleInputChanges} ></input>
             </label>
             <label>
                 Movie Rating
-                <input type="text" name="movieRating" value={values.movieRating} onChange={handleInputChanges} ></input>
+                <input className="inputSpecific" type="text" name="movieRating" value={values.movieRating} onChange={handleInputChanges} ></input>
             </label>
-            <input type="submit" value="submit" />
+            <input className="movieSpecificButton" type="submit" value="submit" />
         </form>
-        <Link to="/">Home</Link>
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/form">Add a Movie!</Link>
-      </header>
+      </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.formPage{
+    @apply bg-[#2a9d8f] bg-cover h-screen
+}
+
+.formTitle{
+    @apply text-[#e9c46a] uppercase font-semibold text-3xl font-serif flex relative justify-center m-auto top-40 underline
+}
+
+.formHero{
+    @apply flex flex-col relative bg-[#ffffff] w-1/4 h-2/4 text-center justify-center m-auto top-1/3 shadow-xl rounded-lg border-2 border-[#e9c46a]
+}
+
+.formField{
+    @apply flex flex-col grid-cols-3 justify-center
+}
+
+.inputField{
+    @apply bg-[#264653] border border-[#e9c46a] text-[#ffffff] font-semibold text-sm rounded-lg focus:border-[#e76f51] block w-64 p-2.5 m-auto
+}
+
+.formButton{
+    @apply bg-[#e9c46a] hover:bg-[#2a9d8f] text-[#e76f51] font-bold px-4 rounded mt-6 w-1/3 flex mx-auto
+}
+
+.formLabel{
+    @apply text-[#264653] text-sm font-thin
+}
+
+.navButtons{
+    @apply flex flex-row justify-center mt-12
+}
+
+.formLinks{
+    @apply mx-6 text-sm font-medium uppercase text-[#e76f51] underline
+}
+

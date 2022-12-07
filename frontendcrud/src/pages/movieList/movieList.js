@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import '../App.css';
+import './movieListStyle.css'
 
 function Dashboard() {
   const [movies, setMovies] = useState(null);
@@ -37,20 +37,25 @@ function Dashboard() {
     }
   }
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Movies List:</h1>
-        <Link to="/">Home</Link>
-        <ul>
-          {
-            movies && movies.map(movie =>(
-              <li key={movie._id}>
-                <Link to={`/movies/${movie._id}`}>{movie.movieName}</Link>
-              </li>
-            ))  
-          }
+    <div className="movieListContainer">
+      <span className="movieListTitle">Movies List:</span>
+      <div className="movieListHero">
+        <div className="moviesContainer">
+          <ul className="grid">
+            {
+              movies && movies.map(movie =>(
+                <li key={movie._id}>
+                  <Link className="movieButton" to={`/movies/${movie._id}`}><button>{movie.movieName}</button></Link>
+                </li>
+              ))  
+            }
         </ul>
-      </header>
+        <div className="movieNavButtons">
+            <Link className="movieListLinks" to="/">Home</Link>
+            <Link className="movieListLinks" to="/form">Add a Movie</Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
